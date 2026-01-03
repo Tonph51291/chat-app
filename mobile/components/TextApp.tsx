@@ -25,6 +25,17 @@ interface TextProps extends FlexBoxProp {
     | "800"
     | "900"
     | undefined;
+  alignSelf?:
+    | "auto"
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "stretch"
+    | "baseline";
+  marginVertical?: number;
+  marginHorizontal?: number;
+  textAlign?: "auto" | "left" | "right" | "center" | "justify";
+  textAlignVertical?: "auto" | "center" | "top" | "bottom";
 }
 const TextComponent = (props: TextProps) => {
   const {
@@ -41,6 +52,8 @@ const TextComponent = (props: TextProps) => {
     marginHorizontal,
     margin,
     fontWeight,
+    textAlign,
+    textAlignVertical,
   } = props;
   return (
     <Text
@@ -59,6 +72,8 @@ const TextComponent = (props: TextProps) => {
           marginHorizontal: marginHorizontal ?? 0,
           margin: margin ?? 0,
           fontWeight: fontWeight,
+          textAlign: textAlign,
+          textAlignVertical: textAlignVertical,
         },
       ]}
     >
