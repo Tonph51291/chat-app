@@ -18,12 +18,9 @@ const OnboardingScreen = () => {
         {/* 1. Nút Bỏ qua */}
         <Box alignSelf="flex-end" marginTop={responsiveSpacingVertical(10)}>
           <TouchableOpacity>
-            <TextApp
-              value="Bỏ qua"
-              color="#6C757D"
-              fontSize={responsiveFont(16)}
-              fontWeight="500"
-            />
+            <TextApp color="#6C757D" fontSize={responsiveFont(16)} weight="700">
+              Bỏ qua
+            </TextApp>
           </TouchableOpacity>
         </Box>
 
@@ -66,20 +63,23 @@ const OnboardingScreen = () => {
           </Box>
 
           <TextApp
-            value="Trò chuyện không giới hạn"
             fontSize={responsiveFont(26)}
-            fontWeight="bold"
+            weight="700"
             color="#000"
             textAlign="center"
-          />
+          >
+            Trò chuyện không giới hạn
+          </TextApp>
 
           <Box marginTop={responsiveSpacingVertical(15)}>
             <TextApp
-              value="Kết nối với bạn bè và gia đình mọi lúc, mọi nơi với tốc độ nhanh chóng và bảo mật cao."
               fontSize={responsiveFont(15)}
               color="#6C757D"
               textAlign="center"
-            />
+            >
+              Kết nối với bạn bè và gia đình mọi lúc, mọi nơi với tốc độ nhanh
+              chóng và bảo mật cao.
+            </TextApp>
           </Box>
         </Box>
 
@@ -125,12 +125,9 @@ const OnboardingScreen = () => {
               radius={scale(12)}
               alignItems="center"
             >
-              <TextApp
-                value="Đăng ký ngay"
-                color="white"
-                fontWeight="bold"
-                fontSize={responsiveFont(16)}
-              />
+              <TextApp color="white" weight="700" fontSize={responsiveFont(16)}>
+                Đăng ký ngay
+              </TextApp>
             </Box>
           </TouchableOpacity>
 
@@ -139,21 +136,20 @@ const OnboardingScreen = () => {
             justifyContent="center"
             marginTop={responsiveSpacingVertical(20)}
           >
-            <TextApp
-              value="Đã có tài khoản? "
-              color="#000"
-              fontSize={responsiveFont(14)}
-            />
+            <TextApp color="#000" fontSize={responsiveFont(14)}>
+              Đã có tài khoản?
+            </TextApp>
             <TouchableOpacity
               activeOpacity={0.8}
               onPress={() => router.push("/(auth)/login")}
             >
               <TextApp
-                value="Đăng nhập"
                 color="#007AFF"
-                fontWeight="bold"
+                weight="700"
                 fontSize={responsiveFont(14)}
-              />
+              >
+                Đăng nhập
+              </TextApp>
             </TouchableOpacity>
           </Box>
         </Box>

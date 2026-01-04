@@ -1,10 +1,12 @@
 import React from "react";
+import { ImageBackground, TouchableOpacity, ScrollView } from "react-native";
+// Import Expo Icons
 import {
-  Image,
-  ImageBackground,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
+  Ionicons,
+  MaterialCommunityIcons,
+  FontAwesome5,
+} from "@expo/vector-icons";
+
 import Box from "@/components/Box";
 import TextApp from "@/components/TextApp";
 import InputApp from "@/components/InputApp";
@@ -41,11 +43,12 @@ const LoginScreen = () => {
             >
               <Box padding={scale(20)}>
                 <TextApp
-                  value="Kết nối mọi lúc, mọi nơi"
                   color="white"
-                  fontWeight="600"
+                  weight="600"
                   fontSize={responsiveFont(16)}
-                />
+                >
+                  Kết nối mọi lúc, mọi nơi
+                </TextApp>
               </Box>
             </ImageBackground>
           </Box>
@@ -55,34 +58,27 @@ const LoginScreen = () => {
             marginTop={responsiveSpacingVertical(24)}
           >
             {/* 2. Tiêu đề */}
+            <TextApp fontSize={responsiveFont(28)} weight="700" color="#000">
+              Chào mừng trở lại!
+            </TextApp>
             <TextApp
-              value="Chào mừng trở lại!"
-              fontSize={responsiveFont(28)}
-              fontWeight="bold"
-              color="#000"
-            />
-            <TextApp
-              value="Vui lòng đăng nhập để tiếp tục cuộc trò chuyện."
               fontSize={responsiveFont(14)}
               color="#6C757D"
               marginTop={responsiveSpacingVertical(8)}
               marginBottom={responsiveSpacingVertical(24)}
-            />
+            >
+              Vui lòng đăng nhập để tiếp tục cuộc trò chuyện.
+            </TextApp>
 
             {/* 3. Form nhập liệu */}
             <InputApp
               label="Email hoặc Số điện thoại"
               placeholder="user@example.com"
               iconLeft={
-                <Image
-                  source={{
-                    uri: "https://cdn-icons-png.flaticon.com/512/542/542689.png",
-                  }}
-                  style={{
-                    width: scale(18),
-                    height: scale(18),
-                    tintColor: "#ADB5BD",
-                  }}
+                <Ionicons
+                  name="mail-outline"
+                  size={scale(20)}
+                  color="#ADB5BD"
                 />
               }
             />
@@ -92,39 +88,26 @@ const LoginScreen = () => {
               placeholder="Nhập mật khẩu của bạn"
               secureTextEntry
               iconLeft={
-                <Image
-                  source={{
-                    uri: "https://cdn-icons-png.flaticon.com/512/3064/3064155.png",
-                  }}
-                  style={{
-                    width: scale(18),
-                    height: scale(18),
-                    tintColor: "#ADB5BD",
-                  }}
+                <Ionicons
+                  name="lock-closed-outline"
+                  size={scale(20)}
+                  color="#ADB5BD"
                 />
               }
               iconRight={
-                <Image
-                  source={{
-                    uri: "https://cdn-icons-png.flaticon.com/512/709/709612.png",
-                  }}
-                  style={{
-                    width: scale(18),
-                    height: scale(18),
-                    tintColor: "#ADB5BD",
-                  }}
-                />
+                <Ionicons name="eye-outline" size={scale(20)} color="#ADB5BD" />
               }
             />
 
             <Box alignSelf="flex-end">
               <TouchableOpacity>
                 <TextApp
-                  value="Quên mật khẩu?"
                   color="#007AFF"
                   fontSize={responsiveFont(13)}
-                  fontWeight="500"
-                />
+                  weight="500"
+                >
+                  Quên mật khẩu?
+                </TextApp>
               </TouchableOpacity>
             </Box>
 
@@ -137,13 +120,15 @@ const LoginScreen = () => {
                 alignItems="center"
                 justifyContent="center"
                 marginTop={responsiveSpacingVertical(24)}
+                paddingVertical={responsiveSpacing(10)}
               >
                 <TextApp
-                  value="Đăng nhập"
                   color="white"
-                  fontWeight="bold"
+                  weight="700"
                   fontSize={responsiveFont(16)}
-                />
+                >
+                  Đăng nhập
+                </TextApp>
               </Box>
             </TouchableOpacity>
 
@@ -155,22 +140,15 @@ const LoginScreen = () => {
                 alignItems="center"
                 marginTop={responsiveSpacingVertical(20)}
               >
-                <Image
-                  source={{
-                    uri: "https://cdn-icons-png.flaticon.com/512/1077/1077012.png",
-                  }}
-                  style={{
-                    width: scale(20),
-                    height: scale(20),
-                    tintColor: "#007AFF",
-                    marginRight: scale(8),
-                  }}
-                />
-                <TextApp
-                  value="Đăng nhập bằng Face ID"
+                <MaterialCommunityIcons
+                  name="face-recognition"
+                  size={scale(24)}
                   color="#007AFF"
-                  fontWeight="500"
+                  style={{ marginRight: scale(8) }}
                 />
+                <TextApp color="#007AFF" weight="500">
+                  Đăng nhập bằng Face ID
+                </TextApp>
               </Box>
             </TouchableOpacity>
 
@@ -182,11 +160,12 @@ const LoginScreen = () => {
             >
               <Box flex={1} height={1} backgroundColor="#E9ECEF" />
               <TextApp
-                value=" Hoặc đăng nhập với "
                 color="#ADB5BD"
                 fontSize={responsiveFont(12)}
                 marginHorizontal={scale(10)}
-              />
+              >
+                {" Hoặc đăng nhập với "}
+              </TextApp>
               <Box flex={1} height={1} backgroundColor="#E9ECEF" />
             </Box>
 
@@ -205,18 +184,15 @@ const LoginScreen = () => {
                   borderColor="#E9ECEF"
                   radius={scale(12)}
                   height={scale(48)}
+                  paddingVertical={responsiveSpacing(10)}
                 >
-                  <Image
-                    source={{
-                      uri: "https://cdn-icons-png.flaticon.com/512/300/300221.png",
-                    }}
-                    style={{
-                      width: scale(18),
-                      height: scale(18),
-                      marginRight: scale(10),
-                    }}
+                  <FontAwesome5
+                    name="google"
+                    size={scale(18)}
+                    color="#DB4437"
+                    style={{ marginRight: scale(10) }}
                   />
-                  <TextApp value="Google" fontWeight="600" />
+                  <TextApp weight="600">Google</TextApp>
                 </Box>
               </TouchableOpacity>
 
@@ -229,18 +205,15 @@ const LoginScreen = () => {
                   borderColor="#E9ECEF"
                   radius={scale(12)}
                   height={scale(48)}
+                  paddingVertical={responsiveSpacing(10)}
                 >
-                  <Image
-                    source={{
-                      uri: "https://cdn-icons-png.flaticon.com/512/0/747.png",
-                    }}
-                    style={{
-                      width: scale(18),
-                      height: scale(18),
-                      marginRight: scale(10),
-                    }}
+                  <Ionicons
+                    name="logo-apple"
+                    size={scale(20)}
+                    color="#000"
+                    style={{ marginRight: scale(10) }}
                   />
-                  <TextApp value="Apple" fontWeight="600" />
+                  <TextApp weight="600">Apple</TextApp>
                 </Box>
               </TouchableOpacity>
             </Box>
@@ -251,13 +224,11 @@ const LoginScreen = () => {
               justifyContent="center"
               marginBottom={responsiveSpacingVertical(40)}
             >
-              <TextApp value="Chưa có tài khoản? " color="#6C757D" />
+              <TextApp color="#6C757D">Chưa có tài khoản? </TextApp>
               <TouchableOpacity onPress={() => router.push("/(auth)/register")}>
-                <TextApp
-                  value="Đăng ký ngay"
-                  color="#007AFF"
-                  fontWeight="bold"
-                />
+                <TextApp color="#007AFF" weight="700">
+                  Đăng ký ngay
+                </TextApp>
               </TouchableOpacity>
             </Box>
           </Box>

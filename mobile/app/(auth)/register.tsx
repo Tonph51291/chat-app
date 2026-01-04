@@ -1,5 +1,12 @@
 import React from "react";
-import { Image, TouchableOpacity, ScrollView } from "react-native";
+import { TouchableOpacity, ScrollView } from "react-native";
+// Import Expo Icons
+import {
+  Ionicons,
+  FontAwesome5,
+  MaterialCommunityIcons,
+} from "@expo/vector-icons";
+
 import Box from "@/components/Box";
 import TextApp from "@/components/TextApp";
 import InputApp from "@/components/InputApp";
@@ -11,6 +18,7 @@ import {
   responsiveSpacingVertical,
 } from "@/constants/responsive";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { router } from "expo-router";
 
 const RegisterScreen = () => {
   return (
@@ -30,27 +38,19 @@ const RegisterScreen = () => {
             paddingHorizontal={responsiveSpacing(20)}
             paddingVertical={responsiveSpacingVertical(10)}
           >
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => router.back()}>
               {/* Icon mũi tên quay lại */}
-              <Image
-                source={{
-                  uri: "https://cdn-icons-png.flaticon.com/512/271/271220.png",
-                }}
-                style={{
-                  width: scale(20),
-                  height: scale(20),
-                  tintColor: "#212529",
-                }}
-              />
+              <Ionicons name="arrow-back" size={scale(24)} color="#212529" />
             </TouchableOpacity>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => router.push("/(auth)/login")}>
               <TextApp
-                value="Đăng nhập"
                 color="#007AFF"
-                fontWeight="bold"
+                weight="700"
                 fontSize={responsiveFont(16)}
-              />
+              >
+                Đăng nhập
+              </TextApp>
             </TouchableOpacity>
           </Box>
 
@@ -59,34 +59,27 @@ const RegisterScreen = () => {
             marginTop={responsiveSpacingVertical(20)}
           >
             {/* 2. Tiêu đề chính */}
+            <TextApp fontSize={responsiveFont(28)} weight="700" color="#000">
+              Tham gia cuộc trò chuyện
+            </TextApp>
             <TextApp
-              value="Tham gia cuộc trò chuyện"
-              fontSize={responsiveFont(28)}
-              fontWeight="bold"
-              color="#000"
-            />
-            <TextApp
-              value="Tạo tài khoản để bắt đầu trò chuyện với bạn bè ngay lập tức."
               fontSize={responsiveFont(15)}
               color="#6C757D"
               marginTop={responsiveSpacingVertical(8)}
               marginBottom={responsiveSpacingVertical(30)}
-            />
+            >
+              Tạo tài khoản để bắt đầu trò chuyện với bạn bè ngay lập tức.
+            </TextApp>
 
             {/* 3. Form nhập liệu */}
             <InputApp
               label="Họ và tên"
               placeholder="Nguyễn Văn A"
               iconRight={
-                <Image
-                  source={{
-                    uri: "https://cdn-icons-png.flaticon.com/512/1077/1077063.png",
-                  }}
-                  style={{
-                    width: scale(18),
-                    height: scale(18),
-                    tintColor: "#ADB5BD",
-                  }}
+                <Ionicons
+                  name="person-outline"
+                  size={scale(20)}
+                  color="#ADB5BD"
                 />
               }
             />
@@ -96,15 +89,10 @@ const RegisterScreen = () => {
               placeholder="example@email.com"
               keyboardType="email-address"
               iconRight={
-                <Image
-                  source={{
-                    uri: "https://cdn-icons-png.flaticon.com/512/542/542689.png",
-                  }}
-                  style={{
-                    width: scale(18),
-                    height: scale(18),
-                    tintColor: "#ADB5BD",
-                  }}
+                <Ionicons
+                  name="mail-outline"
+                  size={scale(20)}
+                  color="#ADB5BD"
                 />
               }
             />
@@ -114,15 +102,10 @@ const RegisterScreen = () => {
               placeholder="********"
               secureTextEntry
               iconRight={
-                <Image
-                  source={{
-                    uri: "https://cdn-icons-png.flaticon.com/512/709/709612.png",
-                  }}
-                  style={{
-                    width: scale(18),
-                    height: scale(18),
-                    tintColor: "#ADB5BD",
-                  }}
+                <Ionicons
+                  name="lock-closed-outline"
+                  size={scale(20)}
+                  color="#ADB5BD"
                 />
               }
             />
@@ -132,65 +115,13 @@ const RegisterScreen = () => {
               placeholder="********"
               secureTextEntry
               iconRight={
-                <Image
-                  source={{
-                    uri: "https://cdn-icons-png.flaticon.com/512/3064/3064155.png",
-                  }}
-                  style={{
-                    width: scale(18),
-                    height: scale(18),
-                    tintColor: "#ADB5BD",
-                  }}
+                <MaterialCommunityIcons
+                  name="shield-check-outline"
+                  size={scale(20)}
+                  color="#ADB5BD"
                 />
               }
             />
-
-            {/* 4. Điều khoản dịch vụ */}
-            <Box
-              flexDirection="row"
-              marginTop={responsiveSpacingVertical(10)}
-              paddingRight={scale(20)}
-            >
-              <Box
-                width={scale(20)}
-                height={scale(20)}
-                borderWidth={1}
-                borderColor="#ADB5BD"
-                radius={4}
-                marginRight={scale(10)}
-              />
-              <Box flex={1}>
-                <TextApp fontSize={responsiveFont(13)} color="#6C757D">
-                  <TextApp
-                    value="Bằng việc tạo tài khoản, bạn đồng ý với "
-                    fontSize={responsiveFont(13)}
-                    color="#6C757D"
-                  />
-                  <TextApp
-                    value="Điều khoản dịch vụ"
-                    color="#007AFF"
-                    fontSize={responsiveFont(13)}
-                    fontWeight="500"
-                  />
-                  <TextApp
-                    value=" và "
-                    fontSize={responsiveFont(13)}
-                    color="#6C757D"
-                  />
-                  <TextApp
-                    value="Chính sách bảo mật"
-                    color="#007AFF"
-                    fontSize={responsiveFont(13)}
-                    fontWeight="500"
-                  />
-                  <TextApp
-                    value=" của chúng tôi."
-                    fontSize={responsiveFont(13)}
-                    color="#6C757D"
-                  />
-                </TextApp>
-              </Box>
-            </Box>
 
             {/* 5. Nút Đăng ký */}
             <TouchableOpacity activeOpacity={0.8}>
@@ -201,13 +132,15 @@ const RegisterScreen = () => {
                 alignItems="center"
                 justifyContent="center"
                 marginTop={responsiveSpacingVertical(30)}
+                paddingVertical={responsiveSpacing(10)}
               >
                 <TextApp
-                  value="Đăng ký"
                   color="white"
-                  fontWeight="bold"
+                  weight="700"
                   fontSize={responsiveFont(16)}
-                />
+                >
+                  Đăng ký
+                </TextApp>
               </Box>
             </TouchableOpacity>
 
@@ -219,11 +152,12 @@ const RegisterScreen = () => {
             >
               <Box flex={1} height={1} backgroundColor="#E9ECEF" />
               <TextApp
-                value=" Hoặc tiếp tục với "
                 color="#ADB5BD"
                 fontSize={responsiveFont(12)}
                 marginHorizontal={scale(10)}
-              />
+              >
+                {" Hoặc tiếp tục với "}
+              </TextApp>
               <Box flex={1} height={1} backgroundColor="#E9ECEF" />
             </Box>
 
@@ -238,18 +172,15 @@ const RegisterScreen = () => {
                   borderColor="#E9ECEF"
                   radius={scale(12)}
                   height={scale(48)}
+                  paddingVertical={responsiveSpacing(10)}
                 >
-                  <Image
-                    source={{
-                      uri: "https://cdn-icons-png.flaticon.com/512/300/300221.png",
-                    }}
-                    style={{
-                      width: scale(18),
-                      height: scale(18),
-                      marginRight: scale(10),
-                    }}
+                  <FontAwesome5
+                    name="google"
+                    size={scale(18)}
+                    color="#DB4437"
+                    style={{ marginRight: scale(10) }}
                   />
-                  <TextApp value="Google" fontWeight="600" />
+                  <TextApp weight="600">Google</TextApp>
                 </Box>
               </TouchableOpacity>
 
@@ -262,18 +193,15 @@ const RegisterScreen = () => {
                   borderColor="#E9ECEF"
                   radius={scale(12)}
                   height={scale(48)}
+                  paddingVertical={responsiveSpacing(10)}
                 >
-                  <Image
-                    source={{
-                      uri: "https://cdn-icons-png.flaticon.com/512/0/747.png",
-                    }}
-                    style={{
-                      width: scale(18),
-                      height: scale(18),
-                      marginRight: scale(10),
-                    }}
+                  <Ionicons
+                    name="logo-apple"
+                    size={scale(20)}
+                    color="#000"
+                    style={{ marginRight: scale(10) }}
                   />
-                  <TextApp value="Apple" fontWeight="600" />
+                  <TextApp weight="600">Apple</TextApp>
                 </Box>
               </TouchableOpacity>
             </Box>

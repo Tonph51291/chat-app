@@ -1,0 +1,9 @@
+export enum _StorageKey {
+  // SecureStorage
+  SECURE_AUTH_TOKEN = "SECURE_AUTH_TOKEN",
+  SECURE_DEVICE_ID = "SECURE_DEVICE_ID",
+  SECURE_TEMP_TOKEN = "SECURE_TEMP_TOKEN",
+
+  // Storage
+  USER_LOGIN = "USER_LOGIN",
+}
